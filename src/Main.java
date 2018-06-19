@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.concurrent.ForkJoinPool;
 
 public class Main {
+	//LISTA DE PAREJAS
 	private static Pair[] list;
 	private static String INPUT = "contestants.txt";
 	private static String OUTPUT = "output.txt";

@@ -48,7 +48,7 @@ public class Main {
 		System.out.println("ORDENACIÓN: " + String.format("%f [msec]",(System.nanoTime() - ordenar) / 1000000.0));
 		long escribir = System.nanoTime();
 
-		// ESCRIBIMOS EL RESULTADO EN UN TXT
+		// ESCRIBIMOS EL RESULTADO EN UN TXT AEDBB
 		try {
 			FileWriter writer = new FileWriter(OUTPUT, false);
 			writer.write(list.length+"\n");

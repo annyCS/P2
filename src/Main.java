@@ -1,3 +1,9 @@
+/**
+ * Modifica la práctica 2 para que, en lugar de ordenar las puntuaciones, devuelva aquellas puntuaciones 
+ * que se encuentren en un rango de valores que se pasará como parámetro. 
+ * Se mantendrá la metodología fork / join, utilizando como caso base un tamaño igual a 100.
+ * Se deberá subir un fichero ZIP con todo el código de la práctica modificada.
+ */
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

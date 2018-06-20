@@ -4,10 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.ForkJoinPool;
 
 public class Main {
-	//LISTA DE PAREJAS
 	private static Pair[] list;
 	private static String INPUT = "contestants.txt";
 	private static String OUTPUT = "output.txt";
@@ -16,7 +16,6 @@ public class Main {
 		long total = System.nanoTime();
 		long insertar = System.nanoTime();
 		
-		// INTRODUCIMOS LOS PARES DE VALORES EN UN ARRAY
 		BufferedReader in;
 		try {
 			in = new BufferedReader(new FileReader(INPUT));
@@ -41,9 +40,9 @@ public class Main {
 		System.out.println("INSERTAR EN ARRAY: " + String.format("%f [msec]",(System.nanoTime() - insertar) / 1000000.0));
 		long ordenar = System.nanoTime();
 
-		// ORDENAMOS EL ARRAY
+		// OBTENEMOS EL RESULTADO
 		ForkJoinPool pool = new ForkJoinPool();
-		pool.invoke(new MergeSort<Pair>(list, 0, list.length));
+		List<Pair> listRes = pool.invoke(new MergeSort(list, 0, list.length, 5000000, 7000000));
 		
 		System.out.println("ORDENACIÓN: " + String.format("%f [msec]",(System.nanoTime() - ordenar) / 1000000.0));
 		long escribir = System.nanoTime();
@@ -51,9 +50,9 @@ public class Main {
 		// ESCRIBIMOS EL RESULTADO EN UN TXT AEDBB
 		try {
 			FileWriter writer = new FileWriter(OUTPUT, false);
-			writer.write(list.length+"\n");
-			for (int i = 0; i < list.length; i++) {
-				writer.write(list[i].getName() + " " +list[i].getScore()+"\n");
+			writer.write(listRes.size()+"\n");
+			for (int i = 0; i < listRes.size(); i++) {
+				writer.write(listRes.get(i).getName() + " " +listRes.get(i).getScore()+"\n");
 			}
 
 			writer.close();
